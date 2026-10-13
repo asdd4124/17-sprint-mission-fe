@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <meta
+      name="description"
+      content="일상의 모든 물건을 거래해 보세요. 판다마켓에서 인기 상품을 확인하고, 구매를 원하는 상품을 검색하고, 판매를 원하는 상품을 쉽게 등록하세요."
+    />
+    <!-- (8) Open Graph: 카카오톡·페이스북 공유 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="판다마켓" />
+    <meta
+      property="og:description"
+      content="일상의 모든 물건을 거래해 보세요"
+    />
+    <meta
+      property="og:image"
+      content="https://panda-market-ejin.netlify.app/images/og-image.png"
+    />
+    <meta property="og:url" content="https://panda-market-ejin.netlify.app" />
+
+    <!-- (9) Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- (10) 파비콘과 테마 색상 -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="images/icons/logo-panda-face.svg"
+    />
+    <meta name="theme-color" content="#3692FF" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img
+            src="images/icons/logo-panda-face.svg"
+            alt=""
+            class="logo-icon"
+            width="40"
+            height="41"
+          />
+          <span class="logo-text">판다마켓</span>
+        </a>
+        <a href="/login" class="btn-login">로그인</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1 class="hero-title">일상의 모든 물건을<br />거래해 보세요</h1>
+            <a href="/items" class="btn-large">구경하러 가기</a>
+          </div>
+          <img
+            src="images/landing/img-home-top.png"
+            alt=""
+            class="hero-image"
+            width="746"
+            height="340"
+          />
+        </div>
+      </section>
+
+      <section class="feature feature-1">
+        <div class="feature-card">
+          <img
+            src="images/landing/img-home-01.png"
+            alt="하트를 받은 초록색 티셔츠와 판다 캐릭터"
+            class="feature-image"
+            width="588"
+            height="444"
+            loading="lazy"
+          />
+          <div class="feature-text">
+            <p class="feature-label">Hot item</p>
+            <div class="feature-body">
+              <h2 class="feature-title">인기 상품을<br />확인해 보세요</h2>
+              <p class="feature-desc">
+                가장 HOT한 중고거래 물품을<br />판다 마켓에서 확인해 보세요
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature feature-2">
+        <div class="feature-card">
+          <div class="feature-text feature-text-right">
+            <p class="feature-label">Search</p>
+            <div class="feature-body">
+              <h2 class="feature-title">
+                구매를 원하는<br />상품을 검색하세요
+              </h2>
+              <p class="feature-desc">
+                구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
+              </p>
+            </div>
+          </div>
+          <img
+            src="images/landing/img-home-02.png"
+            alt="상품 카드 사이에서 돋보기로 상품을 찾는 모습"
+            class="feature-image"
+            width="588"
+            height="444"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="feature feature-3">
+        <div class="feature-card">
+          <img
+            src="images/landing/img-home-03.png"
+            alt="필통, 노트, 안경 상품 카드와 파일 폴더"
+            class="feature-image"
+            width="588"
+            height="444"
+            loading="lazy"
+          />
+          <div class="feature-text">
+            <p class="feature-label">Register</p>
+            <div class="feature-body">
+              <h2 class="feature-title">
+                판매를 원하는<br />상품을 등록하세요
+              </h2>
+              <p class="feature-desc">
+                어떤 물건이든 판매하고 싶은 상품을<br />쉽게 등록하세요
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="banner">
+        <div class="banner-inner">
+          <h2 class="banner-title">믿을 수 있는<br />판다마켓 중고 거래</h2>
+          <img
+            src="images/landing/img-home-bottom.png"
+            alt=""
+            class="banner-image"
+            width="746"
+            height="397"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-copy">©codeit - 2024</p>
+        <nav class="footer-links" aria-label="정책 및 도움말">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/faq">FAQ</a>
+        </nav>
+        <ul class="footer-sns">
+          <li>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="images/icons/ic-facebook.svg"
+                alt="판다마켓 페이스북"
+                width="20"
+                height="20"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="images/icons/ic-twitter.svg"
+                alt="판다마켓 트위터"
+                width="20"
+                height="20"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="images/icons/ic-youtube.svg"
+                alt="판다마켓 유튜브"
+                width="20"
+                height="20"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="images/icons/ic-instagram.svg"
+                alt="판다마켓 인스타그램"
+                width="20"
+                height="20"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

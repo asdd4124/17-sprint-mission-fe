@@ -1,0 +1,244 @@
+/* ===== 0. 폰트 ===== */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../fonts/rokaf-sans-bold-logo.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== 1. 공통 ===== */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-700);
+  background: var(--page);
+}
+a {
+  cursor: pointer;
+}
+
+/* ===== 2. GNB ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 4.375rem;
+  padding: 0.5625rem var(--gutter);
+  background: var(--white);
+  border-bottom: 1px solid var(--line); /* 1px 선은 px 유지 */
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  height: 3.1875rem;
+  margin: 0 auto;
+}
+.logo {
+  position: relative;
+  display: block;
+  width: 9.5625rem;
+  height: 3.1875rem;
+}
+.logo-icon {
+  position: absolute;
+  top: 0.31375rem;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5625rem;
+}
+.logo-text {
+  position: absolute;
+  top: 0.61rem;
+  left: 3.036875rem;
+  height: 2.1875rem;
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 1.601875rem;
+  font-weight: var(--fw-bold);
+  line-height: 2.1875rem;
+  color: var(--blue);
+  white-space: nowrap;
+}
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 3rem;
+  padding: 0.75rem 1.4375rem;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  line-height: 1.625rem;
+}
+
+/* ===== 3. Hero ===== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 33.75rem;
+  background: var(--sky);
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  width: var(--inner);
+  height: 21.25rem;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 3.75rem;
+}
+.hero-title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.btn-large {
+  width: 22.3125rem;
+  height: 3.5rem;
+  padding: 0.75rem 0; /* (56 − 32) ÷ 2 = 12 · 글자 세로 가운데 */
+  border-radius: var(--radius-pill);
+  background: var(--blue);
+  color: var(--gray-50);
+  font-size: var(--fs-btn-lg);
+  font-weight: var(--fw-semibold);
+  line-height: 2rem;
+  text-align: center;
+  white-space: nowrap; /* 어떤 글꼴에서도 한 줄 */
+}
+.hero-image {
+  flex-shrink: 0;
+  width: 46.625rem;
+  height: 21.25rem;
+}
+
+/* ===== 4. 기능 섹션 ===== */
+.feature {
+  height: 45rem;
+  padding: 8.625rem 0; /* 좌우는 카드의 margin: 0 auto가 가운데로 */
+  background: var(--white);
+}
+.feature-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: var(--card);
+  height: 27.75rem;
+  margin: 0 auto;
+  background: var(--page);
+}
+.feature-image {
+  flex-shrink: 0;
+  width: 36.75rem;
+  height: 27.75rem;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.feature-text-right {
+  width: 19.8125rem; /* 317px · Figma 글 묶음 폭 (오른쪽 정렬 기준선) */
+  align-items: flex-end;
+  text-align: right;
+}
+.feature-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.feature-label {
+  color: var(--blue);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  line-height: 1.625rem;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.feature-title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.feature-desc {
+  font-size: var(--fs-desc);
+  font-weight: var(--fw-medium);
+  line-height: 2rem;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+
+/* ===== 5. 하단 배너 ===== */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 33.75rem;
+  margin-top: 8.625rem;
+  background: var(--sky);
+}
+.banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 4.3125rem;
+  width: var(--inner);
+  height: 24.8125rem;
+}
+.banner-title {
+  padding-bottom: 3.75rem;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.banner-image {
+  flex-shrink: 0;
+  width: 46.625rem;
+  height: 24.8125rem;
+}
+
+/* ===== 6. Footer ===== */
+.footer {
+  height: 10rem;
+  padding: 2rem var(--gutter);
+  background: var(--gray-900);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.footer-copy {
+  color: var(--gray-400);
+  font-size: var(--fs-base);
+  line-height: 1;
+}
+.footer-links {
+  display: flex;
+  gap: 1.875rem;
+}
+.footer-links a {
+  color: var(--gray-200);
+  font-size: var(--fs-base);
+  line-height: 1;
+}
+.footer-sns {
+  display: flex;
+  gap: 0.75rem;
+}
+.footer-sns img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
