@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓 - 회원가입</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../images/icons/logo-panda-face.svg"
+    />
+    <meta name="theme-color" content="#3692FF" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth auth--signup">
+      <h1 class="auth-logo">
+        <a href="/" class="logo-lg" aria-label="판다마켓 홈으로">
+          <img
+            src="../images/icons/logo-panda-face.svg"
+            alt=""
+            class="logo-lg-icon"
+            width="104"
+            height="106"
+          />
+          <span class="logo-lg-text">판다마켓</span>
+        </a>
+      </h1>
+
+      <div class="auth-body">
+        <form class="auth-form">
+          <div class="field">
+            <label for="email" class="field-label">이메일</label>
+            <input
+              id="email"
+              class="input"
+              type="email"
+              required
+              placeholder="이메일을 입력해주세요"
+              autocomplete="email"
+            />
+          </div>
+          <div class="field">
+            <label for="nickname" class="field-label">닉네임</label>
+            <input
+              id="nickname"
+              class="input"
+              type="text"
+              required
+              placeholder="닉네임을 입력해주세요"
+              autocomplete="nickname"
+            />
+          </div>
+          <div class="field">
+            <label for="password" class="field-label">비밀번호</label>
+            <div class="input-wrap">
+              <input
+                id="password"
+                class="input"
+                type="password"
+                required
+                placeholder="비밀번호를 입력해주세요"
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                class="btn-eye"
+                aria-label="비밀번호 보기"
+                aria-controls="password"
+              >
+                <img
+                  src="../images/icons/ic-visibility-off.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="password-check" class="field-label">비밀번호 확인</label>
+            <div class="input-wrap">
+              <input
+                id="password-check"
+                class="input"
+                type="password"
+                required
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                class="btn-eye"
+                aria-label="비밀번호 보기"
+                aria-controls="password-check"
+              >
+                <img
+                  src="../images/icons/ic-visibility-off.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn-auth">회원가입</button>
+        </form>
+
+        <section class="sns-login" aria-labelledby="sns-title">
+          <h2 id="sns-title" class="sns-login-title">간편 로그인하기</h2>
+          <ul class="sns-list">
+            <li>
+              <a
+                href="https://www.google.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="../images/icons/ic-google.png"
+                  alt="구글로 로그인"
+                  width="42"
+                  height="42"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.kakaocorp.com/page/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="../images/icons/ic-kakao.png"
+                  alt="카카오톡으로 로그인"
+                  width="42"
+                  height="42"
+              /></a>
+            </li>
+          </ul>
+        </section>
+
+        <p class="auth-switch">
+          이미 회원이신가요? <a href="/login">로그인</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
