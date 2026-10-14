@@ -141,6 +141,11 @@ button {
   font-weight: var(--fw-semibold);
   line-height: 2rem; /* 32px · 로그인 */
 }
+/* 칸을 모두 알맞게 채우면(폼이 유효하면) 파란 버튼 · JS 없이 :valid
+   Figma '로그인 - 테두리' 프레임 · btn_large(active) #3692FF */
+.auth-form:valid .btn-auth {
+  background: var(--blue);
+}
 .auth--signup .btn-auth {
   color: var(--white);
   line-height: 1.5rem; /* 24px · 회원가입 */
