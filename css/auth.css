@@ -1,0 +1,65 @@
+/* =========================================================
+   auth.css · 로그인(/login) · 회원가입(/signup) 공통 스타일
+   - 연결 순서: reset.css → tokens.css → auth.css
+   - 숫자는 Figma 그대로, rem (px ÷ 16). 1px 선만 px.
+   ========================================================= */
+
+/* ===== 0. 폰트 (로고 글자 4개만 담은 공군체 서브셋) ===== */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../fonts/rokaf-sans-bold-logo.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== 1. 공통 ===== */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  background: var(--page);
+}
+a,
+button {
+  cursor: pointer;
+}
+
+/* ===== 2. 전체 틀: 폭 640 · 가운데 · 로고 위 60 ===== */
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* 40px · 로고 ↔ 폼 */
+  width: var(--auth);
+  margin: 0 auto;
+  padding: var(--auth-top) 0;
+}
+
+/* ===== 3. 큰 로고 396 × 132 ===== */
+.auth-logo {
+  align-self: center;
+}
+.logo-lg {
+  position: relative;
+  display: block;
+  width: 24.75rem; /* 396px */
+  height: 8.25rem; /* 132px */
+}
+.logo-lg-icon {
+  position: absolute;
+  top: 0.81125rem; /* 12.98px */
+  left: 0;
+  width: 6.470625rem; /* 103.53px */
+  height: auto;
+}
+.logo-lg-text {
+  position: absolute;
+  top: 1.49875rem; /* 23.98px */
+  left: 7.860625rem; /* 125.77px */
+  height: 5.625rem; /* 90px · 글자 상자 */
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 4.14625rem; /* 66.34px */
+  font-weight: var(--fw-bold);
+  line-height: 5.625rem; /* 90px 상자 세로 가운데 */
+  color: var(--blue);
+  white-space: nowrap;
+}
