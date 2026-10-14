@@ -63,3 +63,68 @@ button {
   color: var(--blue);
   white-space: nowrap;
 }
+
+/* ===== 4. 폼 영역: 항목 사이 24 ===== */
+.auth-body,
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px */
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* 16px · 라벨 ↔ 입력창 */
+}
+.field-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  line-height: 1.625rem; /* 26px · 로그인 */
+}
+.auth--signup .field-label {
+  line-height: 1.3125rem; /* 21px · 회원가입 (Figma 행간 100% 글자 상자) */
+}
+
+/* ===== 5. 입력창 640 × 56 ===== */
+.input {
+  display: block;
+  width: 100%;
+  height: 3.5rem; /* 56px */
+  padding: 1rem 1.5rem; /* 16 · 24 */
+  border: none; /* focus out: 테두리 없음 */
+  border-radius: var(--radius-md);
+  background: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: 1.5rem; /* 24px · 입력한 글자 */
+  color: var(--gray-800);
+}
+.input::placeholder {
+  color: var(--gray-400);
+}
+.input:focus {
+  outline: 1px solid var(--blue); /* focus in: 1px 파란 테두리 */
+  outline-offset: -1px; /* 상자 안쪽에 그리기 (크기 그대로) */
+}
+
+/* 비밀번호: 오른쪽에 눈 아이콘 24 × 24 */
+.input-wrap {
+  position: relative;
+}
+.input-wrap .input {
+  padding-right: 3.625rem; /* 58px = 24 + 아이콘 24 + 10 */
+}
+.btn-eye {
+  position: absolute;
+  top: 1.0625rem; /* 17px = 16 + (26 − 24) ÷ 2 · 26px 줄 가운데 */
+  right: 1.5rem; /* 24px */
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.btn-eye img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
