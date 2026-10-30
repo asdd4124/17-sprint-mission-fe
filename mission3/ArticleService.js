@@ -35,3 +35,27 @@ export function getArticle(articleId) {
     .then((response) => response.data)
     .catch((error) => printError(error));
 }
+
+// 3. 게시글 생성 (post /articles)
+export function createArticle({ title, content, image }) {
+  return instance
+    .post("/articles", { title, content, image })
+    .then((response) => response.data)
+    .catch((error) => printError(error));
+}
+
+// 4. 게시글 수정 (PATCH /articles/{articleId})
+export function patchArticle(articleId, updates) {
+  return instance
+    .patch(`/articles/${articleId}`, updates)
+    .then((response) => response.data)
+    .catch((error) => printError(error));
+}
+
+// 5. 게시글 삭제 (DELETE /artlcles/{articleId})
+export function deleteArticle(articleId) {
+  return instance
+    .delete(`/articles/${articleId}`)
+    .then((response) => response.data)
+    .catch((error) => printError(error));
+}
