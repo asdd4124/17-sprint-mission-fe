@@ -3,9 +3,10 @@
 
 import axios from "axios";
 
-// 기존 주소를 미리 정해 둔 axios (매전 긴 주소를 쓰지 않으려 함)
+// 기본 주소와 대기 시간을 미리 정해 둔 axios (매번 쓰지 않으려고)
 const instance = axios.create({
   baseURL: "https://panda-market-api-crud.vercel.app",
+  timeout: 10000, // 10초 안에 응답이 없으면 에러로 처리
 });
 
 // 에러를 콘솔에 보여 주는 함수 (아래 5개 함수가 같이 씀)
@@ -15,7 +16,7 @@ function printError(error) {
     console.error("에러 상태 코드:", error.response.status);
     console.error("에러 내용:", error.response.data);
   } else {
-    // 인터넷이 끊기는 등 응답 제체를 못 받은 경우
+    // 인터넷이 끊기는 등 응답 자체를 못 받은 경우
     console.error("요청 실패:", error.message);
   }
 }
@@ -28,7 +29,7 @@ export function getArticleList(page = 1, pageSize = 10, keyword = "") {
     .catch((error) => printError(error));
 }
 
-// 2. 게시글 상세 조회 (GET / articles{articleId})
+// 2. 게시글 상세 조회 (GET /articles/{articleId})
 export function getArticle(articleId) {
   return instance
     .get(`/articles/${articleId}`)
@@ -36,7 +37,7 @@ export function getArticle(articleId) {
     .catch((error) => printError(error));
 }
 
-// 3. 게시글 생성 (post /articles)
+// 3. 게시글 생성 (POST /articles)
 export function createArticle({ title, content, image }) {
   return instance
     .post("/articles", { title, content, image })
@@ -52,7 +53,7 @@ export function patchArticle(articleId, updates) {
     .catch((error) => printError(error));
 }
 
-// 5. 게시글 삭제 (DELETE /artlcles/{articleId})
+// 5. 게시글 삭제 (DELETE /articles/{articleId})
 export function deleteArticle(articleId) {
   return instance
     .delete(`/articles/${articleId}`)
