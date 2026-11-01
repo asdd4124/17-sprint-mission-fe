@@ -38,24 +38,35 @@ const articleScenarios = [
     given: "방금 만든 게시글 ID가 주어졌을 때",
     when: "getArticle()을 실행하면",
     then: "해당 게시글 정보가 반환된다",
+    needsId: true, // 만든 글 번호(memo.articleId)가 있어야 하는 카드
     run: () => getArticle(memo.articleId),
+  },
+  {
+    given: '방금 만든 글 제목에 들어 있는 "장은진"이 검색어로 주어졌을 때',
+    when: 'getArticleList(1, 3, "장은진")을 실행하면',
+    then: '제목에 "장은진"이 들어간 게시글 목록이 반환된다',
+    needsId: true,
+    run: () => getArticleList(1, 3, "장은진"),
   },
   {
     given: "바꿀 제목이 주어졌을 때",
     when: "patchArticle()을 실행하면",
     then: "제목이 바뀐 게시글이 반환된다",
+    needsId: true,
     run: () => patchArticle(memo.articleId, { title: "수정된 제목" }),
   },
   {
     given: "방금 만든 게시글 ID가 주어졌을 때",
     when: "deleteArticle()을 실행하면",
     then: "삭제된 게시글의 id가 반환된다",
+    needsId: true,
     run: () => deleteArticle(memo.articleId),
   },
   {
     given: "이미 삭제된 게시글 ID가 주어졌을 때",
     when: "getArticle()을 실행하면",
     then: "404 에러가 콘솔에 출력된다",
+    needsId: true,
     run: () => getArticle(memo.articleId),
   },
 ];
@@ -66,6 +77,13 @@ async function runScenario(scenario) {
   console.log("Given:", scenario.given);
   console.log("When:", scenario.when);
   console.log("Then:", scenario.then);
+
+  // 글 만들기가 실패해서 번호가 없으면, 번호가 필요한 카드는 건너뛰기
+  if (scenario.needsId && !memo.articleId) {
+    console.log(">> 건너뜀: 게시글 생성에 실패해서 id가 없어요.");
+    return;
+  }
+
   const result = await scenario.run();
   console.log(">> 실제 결과:", result);
 }
