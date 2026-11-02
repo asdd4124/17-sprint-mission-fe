@@ -42,3 +42,45 @@ export async function getProduct(productId) {
     printError(error);
   }
 }
+
+// 3. 상품 생성 (POST /products)
+export async function createProduct({
+  name,
+  description,
+  price,
+  tags,
+  images,
+}) {
+  try {
+    const response = await instance.post("/products", {
+      name,
+      description,
+      price,
+      tags,
+      images,
+    });
+    return response.data;
+  } catch (error) {
+    printError(error);
+  }
+}
+
+// 4. 상품 수정 (PATCH /products/{productId})
+export async function patchProduct(productId, updates) {
+  try {
+    const response = await instance.patch(`/products/${productId}`, updates);
+    return response.data;
+  } catch (error) {
+    printError(error);
+  }
+}
+
+// 5. 상품 삭제 (DELETE /products/{productId})
+export async function deleteProduct(productId) {
+  try {
+    const response = await instance.delete(`/products/${productId}`);
+    return response.data;
+  } catch (error) {
+    printError(error);
+  }
+}
