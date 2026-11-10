@@ -1,0 +1,71 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 4.375rem;
+  padding: 0.5625rem var(--gutter);
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  height: 3.1875rem;
+  margin: 0 auto;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.logo {
+  position: relative;
+  display: block;
+  width: 9.5625rem;
+  height: 3.1875rem;
+}
+.logo-icon {
+  position: absolute;
+  top: 0.31375rem;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5625rem;
+}
+.logo-text {
+  position: absolute;
+  top: 0.61rem;
+  left: 3.036875rem;
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 1.601875rem;
+  font-weight: var(--fw-bold);
+  line-height: 2.1875rem;
+  color: var(--blue);
+  white-space: nowrap;
+}
+.header-nav {
+  display: flex;
+}
+.header-nav a {
+  padding: 0 0.9375rem;
+  font-size: 1.125rem;
+  font-weight: var(--fw-bold);
+  line-height: 1.625rem;
+  color: var(--gray-600);
+}
+.header-nav a.active {
+  color: var(--blue);
+}
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 3rem;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
