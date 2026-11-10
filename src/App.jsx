@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Header />
-      <main style={{ minHeight: "60vh" }}>
+      <main>
         <h1>판다마켓</h1>
       </main>
       <Footer />
