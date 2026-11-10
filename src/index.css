@@ -1,0 +1,25 @@
+/* 로고 글꼴 (public/fonts 폴더 → 주소는 /fonts/로 시작) */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("/fonts/rokaf-sans-bold-logo.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 페이지 전체 공통 */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-700);
+  background: var(--page);
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
