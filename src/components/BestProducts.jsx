@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
+import useWindowWidth from "../hooks/useWindowWidth";
 import ProductCard from "./ProductCard";
 import "./BestProducts.css";
+
+function getBestPageSize(width) {
+  if (width >= 1200) return 4;
+  if (width >= 744) return 2;
+  return 1;
+}
 
 function BestProducts() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const width = useWindowWidth();
+  const pageSize = getBestPageSize(width);
 
   useEffect(() => {
     const loadBestProducts = async () => {
@@ -15,7 +25,7 @@ function BestProducts() {
       try {
         const data = await getProducts({
           page: 1,
-          pageSize: 4,
+          pageSize,
           orderBy: "favorite",
         });
         setProducts(data.list);
@@ -27,7 +37,7 @@ function BestProducts() {
     };
 
     loadBestProducts();
-  }, []);
+  }, [pageSize]);
 
   return (
     <section className="best-products">
