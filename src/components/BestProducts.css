@@ -9,3 +9,17 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
+
+/* 태블릿: 2칸 */
+@media (max-width: 1199px) {
+  .best-products-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 모바일: 1칸 */
+@media (max-width: 743px) {
+  .best-products-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
