@@ -1,0 +1,11 @@
+.best-products {
+  margin-bottom: 2.5rem;
+}
+.best-products .section-title {
+  margin-bottom: 1rem;
+}
+.best-products-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
