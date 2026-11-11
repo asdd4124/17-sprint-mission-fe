@@ -1,12 +1,13 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AllProducts from "./components/AllProducts";
 
 function App() {
   return (
     <>
       <Header />
-      <main>
-        <h1>판다마켓</h1>
+      <main className="market">
+        <AllProducts />
       </main>
       <Footer />
     </>

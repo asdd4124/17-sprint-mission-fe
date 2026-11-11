@@ -34,3 +34,19 @@ button {
 main {
   flex: 1;
 }
+
+/* 중고마켓 페이지 안쪽 폭 (PC 1200px) */
+.market {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1.5rem 0 8.75rem;
+}
+
+/* "베스트 상품", "전체 상품" 제목 */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 2rem;
+  color: var(--gray-900);
+}
