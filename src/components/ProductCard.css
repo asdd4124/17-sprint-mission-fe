@@ -20,6 +20,9 @@
   font-weight: var(--fw-medium);
   line-height: 1.5rem;
   color: var(--gray-800);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .product-card-price {
   font-size: 1rem;
