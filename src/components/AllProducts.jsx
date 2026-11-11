@@ -18,7 +18,7 @@ function AllProducts() {
         const data = await getProducts({
           page: 1,
           pageSize: 10,
-          orderBy: "recent",
+          orderBy,
         });
         setProducts(data.list);
       } catch {
@@ -29,7 +29,7 @@ function AllProducts() {
     };
 
     loadProducts();
-  }, []);
+  }, [orderBy]);
 
   return (
     <section className="all-products">
