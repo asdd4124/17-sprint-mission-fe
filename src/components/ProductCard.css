@@ -35,3 +35,29 @@
   font-weight: var(--fw-medium);
   color: var(--gray-600);
 }
+
+/* 사진이 없거나 깨졌을 때: 회색 칸 가운데 흐린 판다마켓 로고 (위: 얼굴, 아래: 글자) */
+.product-card-img-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2cqw;
+  container-type: inline-size;
+}
+.product-card-img-empty-icon,
+.product-card-img-empty-text {
+  filter: grayscale(100%);
+  opacity: 0.2;
+}
+.product-card-img-empty-icon {
+  width: 24cqw;
+  height: auto;
+}
+.product-card-img-empty-text {
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 10cqw;
+  font-weight: var(--fw-bold);
+  color: var(--blue);
+  white-space: nowrap;
+}
