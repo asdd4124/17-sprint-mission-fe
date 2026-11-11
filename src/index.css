@@ -50,3 +50,17 @@ main {
   line-height: 2rem;
   color: var(--gray-900);
 }
+
+/* 태블릿: 양옆 여백 24px */
+@media (max-width: 1199px) {
+  .market {
+    padding: 1rem 1.5rem 8.75rem;
+  }
+}
+
+/* 모바일: 양옆 여백 16px */
+@media (max-width: 743px) {
+  .market {
+    padding: 1rem 1rem 8.75rem;
+  }
+}

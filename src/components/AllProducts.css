@@ -28,10 +28,17 @@
   }
 }
 
-/* 모바일: 2칸 */
+/* 모바일: 2칸 + 헤더 두 줄 */
 @media (max-width: 743px) {
   .all-products-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 0.5rem;
+  }
+  .all-products-header {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+  .all-products-controls {
+    width: 100%;
   }
 }

@@ -21,3 +21,18 @@
 .search-form-input::placeholder {
   color: var(--gray-400);
 }
+
+/* 태블릿: 검색창 폭 242px */
+@media (max-width: 1199px) {
+  .search-form {
+    width: 15.125rem;
+  }
+}
+
+/* 모바일: 남은 폭을 꽉 채우기 */
+@media (max-width: 743px) {
+  .search-form {
+    flex: 1;
+    width: auto;
+  }
+}
