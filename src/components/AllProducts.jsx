@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
 import ProductCard from "./ProductCard";
+import SortDropdown from "./SortDropdown";
 import "./AllProducts.css";
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [orderBy, setOrderBy] = useState("recent");
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -33,6 +35,7 @@ function AllProducts() {
     <section className="all-products">
       <div className="all-products-header">
         <h2 className="section-title">전체 상품</h2>
+        <SortDropdown value={orderBy} onChange={setOrderBy} />
       </div>
 
       {isLoading && <p className="status-text">불러오는 중...</p>}
