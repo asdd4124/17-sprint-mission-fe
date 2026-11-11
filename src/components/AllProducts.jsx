@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
 import ProductCard from "./ProductCard";
+import SearchForm from "./SearchForm";
 import SortDropdown from "./SortDropdown";
 import "./AllProducts.css";
 
@@ -9,6 +10,7 @@ function AllProducts() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [orderBy, setOrderBy] = useState("recent");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -19,6 +21,7 @@ function AllProducts() {
           page: 1,
           pageSize: 10,
           orderBy,
+          keyword,
         });
         setProducts(data.list);
       } catch {
@@ -29,13 +32,16 @@ function AllProducts() {
     };
 
     loadProducts();
-  }, [orderBy]);
+  }, [orderBy, keyword]);
 
   return (
     <section className="all-products">
       <div className="all-products-header">
         <h2 className="section-title">전체 상품</h2>
-        <SortDropdown value={orderBy} onChange={setOrderBy} />
+        <div className="all-products-controls">
+          <SearchForm onSearch={setKeyword} />
+          <SortDropdown value={orderBy} onChange={setOrderBy} />
+        </div>
       </div>
 
       {isLoading && <p className="status-text">불러오는 중...</p>}

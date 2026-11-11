@@ -14,3 +14,8 @@
   text-align: center;
   color: var(--gray-500);
 }
+.all-products-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
