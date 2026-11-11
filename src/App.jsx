@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BestProducts from "./components/BestProducts";
 import AllProducts from "./components/AllProducts";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Header />
       <main className="market">
+        <BestProducts />
         <AllProducts />
       </main>
       <Footer />
