@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
+import useWindowWidth from "../hooks/useWindowWidth";
 import ProductCard from "./ProductCard";
 import SearchForm from "./SearchForm";
 import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
 import "./AllProducts.css";
 
-const PAGE_SIZE = 10;
+function getAllPageSize(width) {
+  if (width >= 1200) return 10;
+  if (width >= 744) return 6;
+  return 4;
+}
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -17,7 +22,16 @@ function AllProducts() {
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
-  const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+  const width = useWindowWidth();
+  const pageSize = getAllPageSize(width);
+  const [prevPageSize, setPrevPageSize] = useState(pageSize);
+
+  if (pageSize !== prevPageSize) {
+    setPrevPageSize(pageSize);
+    setPage(1);
+  }
+
+  const totalPages = Math.ceil(totalCount / pageSize);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -26,7 +40,7 @@ function AllProducts() {
       try {
         const data = await getProducts({
           page,
-          pageSize: PAGE_SIZE,
+          pageSize,
           orderBy,
           keyword,
         });
@@ -40,7 +54,7 @@ function AllProducts() {
     };
 
     loadProducts();
-  }, [page, orderBy, keyword]);
+  }, [page, pageSize, orderBy, keyword]);
 
   const handleOrderChange = (nextOrderBy) => {
     setOrderBy(nextOrderBy);
