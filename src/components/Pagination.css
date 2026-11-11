@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 2.5rem;
+}
+.pagination-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+  background: var(--white);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--gray-500);
+}
+.pagination-button-active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--white);
+}
+.pagination-button:disabled {
+  cursor: default;
+}
