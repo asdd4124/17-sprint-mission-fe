@@ -69,3 +69,40 @@
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
 }
+
+/* 태블릿 (744px ~ 1199px) */
+@media (max-width: 1199px) {
+  .header {
+    padding: 0.5625rem 1.5rem;
+  }
+  .header-left {
+    gap: 1.25rem;
+  }
+}
+
+/* 모바일 (375px ~ 743px) */
+@media (max-width: 743px) {
+  .header {
+    padding: 0.5625rem 1rem;
+  }
+  .header-left {
+    gap: 0.5rem;
+  }
+  .logo {
+    width: 5.0625rem;
+  }
+  .logo-icon {
+    display: none;
+  }
+  .logo-text {
+    left: 0;
+    font-size: 1.25rem;
+  }
+  .header-nav a {
+    padding: 0 0.25rem;
+    font-size: 1rem;
+  }
+  .btn-login {
+    width: 5.5rem;
+  }
+}
