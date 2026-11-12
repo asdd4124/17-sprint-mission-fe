@@ -51,6 +51,18 @@ main {
   color: var(--gray-900);
 }
 
+/* 파란 기본 버튼 (로그인·상품 등록하기 공통) */
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
 /* 태블릿: 양옆 여백 24px */
 @media (max-width: 1199px) {
   .market {

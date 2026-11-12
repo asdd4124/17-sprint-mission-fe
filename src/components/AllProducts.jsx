@@ -45,7 +45,7 @@ function AllProducts() {
       <div className="all-products-header">
         <h2 className="section-title">전체 상품</h2>
         <SearchForm onSearch={handleSearch} />
-        <a href="/registration" className="all-products-register">
+        <a href="/registration" className="btn-primary all-products-register">
           상품 등록하기
         </a>
         <SortDropdown value={orderBy} onChange={handleOrderChange} />

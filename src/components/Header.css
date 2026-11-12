@@ -58,16 +58,8 @@
   color: var(--blue);
 }
 .btn-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 8rem;
   height: 3rem;
-  border-radius: var(--radius-sm);
-  background: var(--blue);
-  color: var(--gray-100);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
 }
 
 /* 태블릿 (744px ~ 1199px) */

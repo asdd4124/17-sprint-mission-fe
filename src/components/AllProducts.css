@@ -8,16 +8,8 @@
   margin-right: auto;
 }
 .all-products-register {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 2.625rem;
   padding: 0 1.4375rem;
-  border-radius: var(--radius-sm);
-  background: var(--blue);
-  color: var(--gray-100);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
   white-space: nowrap;
 }
 .all-products-list {

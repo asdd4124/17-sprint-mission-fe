@@ -21,7 +21,7 @@ function Header() {
             </a>
           </nav>
         </div>
-        <a href="/login" className="btn-login">
+        <a href="/login" className="btn-primary btn-login">
           로그인
         </a>
       </div>
