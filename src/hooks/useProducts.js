@@ -20,6 +20,7 @@ function useProducts({ page, pageSize, orderBy, keyword }) {
         setTotalCount(data.totalCount);
       } catch (err) {
         if (ignore) return;
+        setProducts([]);
         setError(err);
       } finally {
         if (!ignore) setIsLoading(false);
