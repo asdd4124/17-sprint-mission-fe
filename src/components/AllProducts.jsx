@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../api/products";
+import { useState } from "react";
+import useProducts from "../hooks/useProducts";
 import useWindowWidth from "../hooks/useWindowWidth";
 import ProductCard from "./ProductCard";
 import SearchForm from "./SearchForm";
@@ -14,13 +14,9 @@ function getAllPageSize(width) {
 }
 
 function AllProducts() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
 
   const width = useWindowWidth();
   const pageSize = getAllPageSize(width);
@@ -31,31 +27,15 @@ function AllProducts() {
     setPage(1);
   }
 
+  const { products, totalCount, isLoading, error } = useProducts({
+    page,
+    pageSize,
+    orderBy,
+    keyword,
+  });
+
   const totalPages = Math.ceil(totalCount / pageSize);
   const isEmpty = !isLoading && !error && products.length === 0;
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const data = await getProducts({
-          page,
-          pageSize,
-          orderBy,
-          keyword,
-        });
-        setProducts(data.list);
-        setTotalCount(data.totalCount);
-      } catch {
-        setError("상품을 불러오지 못했어요.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadProducts();
-  }, [page, pageSize, orderBy, keyword]);
 
   const handleOrderChange = (nextOrderBy) => {
     setOrderBy(nextOrderBy);
@@ -79,7 +59,7 @@ function AllProducts() {
       </div>
 
       {isLoading && <p className="status-text">불러오는 중...</p>}
-      {error && <p className="status-text">{error}</p>}
+      {error && <p className="status-text">상품을 불러오지 못했어요.</p>}
       {isEmpty && (
         <p className="status-text">
           {keyword
