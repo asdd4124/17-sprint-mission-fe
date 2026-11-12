@@ -15,7 +15,7 @@ function getAllPageSize(width) {
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
@@ -32,6 +32,7 @@ function AllProducts() {
   }
 
   const totalPages = Math.ceil(totalCount / pageSize);
+  const isEmpty = !isLoading && !error && products.length === 0;
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -79,6 +80,13 @@ function AllProducts() {
 
       {isLoading && <p className="status-text">불러오는 중...</p>}
       {error && <p className="status-text">{error}</p>}
+      {isEmpty && (
+        <p className="status-text">
+          {keyword
+            ? `"${keyword}"에 대한 검색 결과가 없어요.`
+            : "등록된 상품이 없어요."}
+        </p>
+      )}
 
       <ul className="all-products-list">
         {products.map((product) => (
