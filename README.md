@@ -34,8 +34,8 @@ npm run dev
 - [x] 랜딩 페이지와 같은 스타일의 헤더·푸터
 - [x] 베스트 상품: 좋아요 많은 순(`orderBy=favorite`)
 - [x] 전체 상품: `GET /products`로 목록 불러오기
-- [x] 최신순·좋아요순 정렬 드롭다운
-- [x] 상품 검색 (검색어 입력 후 Enter)
+- [x] 최신순·좋아요순 정렬 드롭다운 (정렬을 바꾸면 1페이지로 이동)
+- [x] 상품 검색 (검색어 입력 후 Enter, 검색하면 1페이지로 이동)
 - [x] 페이지네이션 (페이지 번호 5개씩 묶음, 이전·다음 버튼)
 
 ### 심화 요구사항
@@ -55,7 +55,7 @@ npm run dev
 
 - 상품 이미지가 없거나 깨지면 판다마켓 기본 이미지 표시
 - 긴 상품명은 한 줄 말줄임(…) 처리
-- 검색 결과가 없을 때 안내 문구 표시
+- 불러오는 중 · 불러오기 실패 · 검색 결과 없음 상태 문구 표시
 - 상품 등록하기 버튼 (`/registration`으로 이동, 등록 페이지는 이후 미션에서 구현)
 - 모바일에서는 정렬 버튼을 아이콘으로 표시
 - 판다마켓 로고 파비콘
@@ -95,5 +95,12 @@ src
 
 ## 사용 API
 
-- `GET https://panda-market-api.vercel.app/products`
+- `GET https://panda-market-api.vercel.app/products` ([API 명세](https://panda-market-api.vercel.app/docs/))
   - `page`, `pageSize`, `orderBy`(`recent` | `favorite`), `keyword`
+  - 검색은 API의 `keyword`를 그대로 사용해서, 상품명뿐 아니라 상품 설명에 검색어가 들어간 상품도 결과에 나옵니다.
+
+## 이번 범위에 포함하지 않은 것
+
+- 상품 등록(`/registration`), 로그인, 자유게시판, Privacy·FAQ 페이지 (링크만 연결)
+- 상품 상세 페이지 (상품 카드를 눌러도 이동하지 않음)
+- 좋아요 누르기 (좋아요 수는 표시만)
