@@ -1,25 +1,18 @@
 import { useState } from "react";
 import useProducts from "../hooks/useProducts";
-import useWindowWidth from "../hooks/useWindowWidth";
+import usePageSize from "../hooks/usePageSize";
 import ProductCard from "./ProductCard";
 import SearchForm from "./SearchForm";
 import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
 import "./AllProducts.css";
 
-function getAllPageSize(width) {
-  if (width >= 1200) return 10;
-  if (width >= 744) return 6;
-  return 4;
-}
-
 function AllProducts() {
   const [orderBy, setOrderBy] = useState("recent");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
-  const width = useWindowWidth();
-  const pageSize = getAllPageSize(width);
+  const pageSize = usePageSize({ pc: 10, tablet: 6, mobile: 4 });
   const [prevPageSize, setPrevPageSize] = useState(pageSize);
 
   if (pageSize !== prevPageSize) {

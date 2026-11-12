@@ -1,17 +1,10 @@
 import useProducts from "../hooks/useProducts";
-import useWindowWidth from "../hooks/useWindowWidth";
+import usePageSize from "../hooks/usePageSize";
 import ProductCard from "./ProductCard";
 import "./BestProducts.css";
 
-function getBestPageSize(width) {
-  if (width >= 1200) return 4;
-  if (width >= 744) return 2;
-  return 1;
-}
-
 function BestProducts() {
-  const width = useWindowWidth();
-  const pageSize = getBestPageSize(width);
+  const pageSize = usePageSize({ pc: 4, tablet: 2, mobile: 1 });
   const { products, isLoading, error } = useProducts({
     page: 1,
     pageSize,
