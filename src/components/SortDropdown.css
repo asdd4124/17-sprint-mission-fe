@@ -37,3 +37,25 @@
 .sort-dropdown-item:hover {
   background: var(--gray-50);
 }
+.sort-dropdown-icon {
+  display: none;
+}
+
+/* 모바일: 글자·화살표 대신 정렬 아이콘만 */
+@media (max-width: 743px) {
+  .sort-dropdown-button {
+    justify-content: center;
+    width: 2.625rem;
+    padding: 0;
+  }
+  .sort-dropdown-label,
+  .sort-dropdown-arrow {
+    display: none;
+  }
+  .sort-dropdown-icon {
+    display: block;
+  }
+  .sort-dropdown-menu {
+    width: 8.125rem;
+  }
+}

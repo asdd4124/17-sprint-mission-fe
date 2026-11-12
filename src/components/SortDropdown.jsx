@@ -26,10 +26,19 @@ function SortDropdown({ value, onChange }) {
         type="button"
         className="sort-dropdown-button"
         onClick={handleToggle}
+        aria-label={`정렬: ${selectedOption.label}`}
       >
-        <span>{selectedOption.label}</span>
+        <span className="sort-dropdown-label">{selectedOption.label}</span>
         <img
+          className="sort-dropdown-arrow"
           src="/images/icons/ic_arrow_down.svg"
+          alt=""
+          width="24"
+          height="24"
+        />
+        <img
+          className="sort-dropdown-icon"
+          src="/images/icons/ic_sort.svg"
           alt=""
           width="24"
           height="24"
