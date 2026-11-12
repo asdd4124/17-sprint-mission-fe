@@ -1,8 +1,24 @@
 .all-products-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
+}
+.all-products-header .section-title {
+  margin-right: auto;
+}
+.all-products-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.625rem;
+  padding: 0 1.4375rem;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
 }
 .all-products-list {
   display: grid;
@@ -16,11 +32,6 @@
   padding: 2rem 0;
   text-align: center;
   color: var(--gray-500);
-}
-.all-products-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
 /* 태블릿: 3칸 */
@@ -38,10 +49,23 @@
     gap: 2rem 0.5rem;
   }
   .all-products-header {
-    flex-wrap: wrap;
-    row-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "title  register register"
+      "search search   sort";
+    gap: 0.5rem;
   }
-  .all-products-controls {
-    width: 100%;
+  .all-products-header .section-title {
+    grid-area: title;
+  }
+  .all-products-header .search-form {
+    grid-area: search;
+  }
+  .all-products-register {
+    grid-area: register;
+  }
+  .all-products-header .sort-dropdown {
+    grid-area: sort;
   }
 }
