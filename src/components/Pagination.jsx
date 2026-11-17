@@ -7,10 +7,10 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     Math.floor((currentPage - 1) / PAGE_GROUP_SIZE) * PAGE_GROUP_SIZE + 1;
   const groupEnd = Math.min(groupStart + PAGE_GROUP_SIZE - 1, totalPages);
 
-  const pageNumbers = [];
-  for (let page = groupStart; page <= groupEnd; page++) {
-    pageNumbers.push(page);
-  }
+  const pageNumbers = Array.from(
+    { length: groupEnd - groupStart + 1 },
+    (_, index) => groupStart + index,
+  );
 
   const isFirstPage = currentPage <= 1;
   const isLastPage = currentPage >= totalPages;
