@@ -1,14 +1,9 @@
-import useWindowWidth from "./useWindowWidth";
+import useDeviceType from "./useDeviceType";
 
-const PC_MIN_WIDTH = 1200;
-const TABLET_MIN_WIDTH = 744;
-
-function usePageSize({ pc, tablet, mobile }) {
-  const width = useWindowWidth();
-
-  if (width >= PC_MIN_WIDTH) return pc;
-  if (width >= TABLET_MIN_WIDTH) return tablet;
-  return mobile;
+// 기기 구간에 맞는 개수 고르기 (sizes: { pc, tablet, mobile })
+function usePageSize(sizes) {
+  const deviceType = useDeviceType();
+  return sizes[deviceType];
 }
 
 export default usePageSize;
