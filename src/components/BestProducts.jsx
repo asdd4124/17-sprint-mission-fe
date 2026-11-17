@@ -1,6 +1,7 @@
 import useProducts from "../hooks/useProducts";
 import usePageSize from "../hooks/usePageSize";
 import ProductCard from "./ProductCard";
+import { ORDER_BY } from "../constants/product";
 import "./BestProducts.css";
 
 function BestProducts() {
@@ -8,7 +9,7 @@ function BestProducts() {
   const { products, isLoading, error } = useProducts({
     page: 1,
     pageSize,
-    orderBy: "favorite",
+    orderBy: ORDER_BY.FAVORITE,
   });
 
   return (

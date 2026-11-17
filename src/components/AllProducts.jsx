@@ -5,10 +5,11 @@ import ProductCard from "./ProductCard";
 import SearchForm from "./SearchForm";
 import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
+import { ORDER_BY } from "../constants/product";
 import "./AllProducts.css";
 
 function AllProducts() {
-  const [orderBy, setOrderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState(ORDER_BY.RECENT);
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
