@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# 환경 변수 파일 (서버 주소·비밀값은 Git에 올리지 않기)
+.env
 
 # Editor directories and files
 .vscode/*

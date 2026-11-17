@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// 기본 주소를 미리 정해 둔 axios (미션 3과 같은 방식)
+// 기본 주소(.env의 VITE_API_URL)를 미리 정해 둔 axios
 const instance = axios.create({
-  baseURL: "https://panda-market-api.vercel.app",
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
 });
 
