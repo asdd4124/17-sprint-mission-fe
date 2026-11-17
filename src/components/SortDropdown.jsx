@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ORDER_BY } from "../constants/product";
 import "./SortDropdown.css";
 
@@ -9,8 +9,26 @@ const SORT_OPTIONS = [
 
 function SortDropdown({ value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const selectedOption = SORT_OPTIONS.find((option) => option.value === value);
+
+  // 메뉴가 열려 있을 때 바깥을 누르면 닫기
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event) => {
+      if (!dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
@@ -22,7 +40,7 @@ function SortDropdown({ value, onChange }) {
   };
 
   return (
-    <div className="sort-dropdown">
+    <div className="sort-dropdown" ref={dropdownRef}>
       <button
         type="button"
         className="sort-dropdown-button"
