@@ -1,18 +1,15 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BestProducts from "./components/BestProducts";
-import AllProducts from "./components/AllProducts";
+import { Route, Routes } from "react-router";
+import Layout from "./components/Layout";
+import MarketPage from "./pages/MarketPage";
 
+// 주소별 페이지 연결
 function App() {
   return (
-    <>
-      <Header />
-      <main className="market">
-        <BestProducts />
-        <AllProducts />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/items" element={<MarketPage />} />
+      </Route>
+    </Routes>
   );
 }
 
