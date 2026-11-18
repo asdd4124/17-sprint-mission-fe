@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import useProducts from "../hooks/useProducts";
 import usePageSize from "../hooks/usePageSize";
 import ProductCard from "./ProductCard";
@@ -46,9 +47,9 @@ function AllProducts() {
       <div className="all-products-header">
         <h2 className="section-title">전체 상품</h2>
         <SearchForm onSearch={handleSearch} />
-        <a href="/registration" className="btn-primary all-products-register">
+        <Link to="/registration" className="btn-primary all-products-register">
           상품 등록하기
-        </a>
+        </Link>
         <SortDropdown value={orderBy} onChange={handleOrderChange} />
       </div>
 

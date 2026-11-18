@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./Footer.css";
 
 const SNS_LINKS = [
@@ -29,8 +30,8 @@ function Footer() {
       <div className="footer-inner">
         <p className="footer-copy">©codeit - 2024</p>
         <nav className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/faq">FAQ</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/faq">FAQ</Link>
         </nav>
         <ul className="footer-sns">
           {SNS_LINKS.map((sns) => (
