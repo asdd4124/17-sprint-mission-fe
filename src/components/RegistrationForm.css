@@ -47,6 +47,18 @@
   height: 17.625rem;
   resize: none;
 }
+.registration-form-input-error {
+  border: 1px solid var(--red);
+}
+/* 입력칸과 에러 문구 사이 8px (묶음 간격 16px에서 8px 줄이기) */
+.registration-form-error {
+  margin-top: -0.5rem;
+  padding-left: 1rem;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: 1.5rem;
+  color: var(--red);
+}
 
 /* 태블릿·모바일: 입력칸 묶음 사이 간격 24px */
 @media (max-width: 1199px) {

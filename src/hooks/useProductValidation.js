@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // 유효성 검사 기준 (백엔드 CreateProduct 규칙과 같게)
 const NAME_MAX_LENGTH = 10;
 const DESCRIPTION_MIN_LENGTH = 10;
@@ -38,8 +40,19 @@ function getErrors(values) {
 
 // 상품 등록 입력값 유효성 검사 (그릴 때마다 현재 값으로 다시 계산)
 function useProductValidation(values) {
+  const [touched, setTouched] = useState({}); // 한 번이라도 벗어난 입력칸
   const errors = getErrors(values);
-  return { errors };
+
+  // 입력칸을 벗어나면(blur) 그 칸의 name을 touched에 기록
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
+
+  // 벗어난 적 있는 입력칸만 에러 문구 돌려주기 (처음부터 빨간색이 뜨지 않게)
+  const getError = (name) => (touched[name] ? errors[name] : "");
+
+  return { getError, handleBlur };
 }
 
 export default useProductValidation;
