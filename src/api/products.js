@@ -8,7 +8,7 @@ const instance = axios.create({
 });
 
 // 상품 목록 조회 (GET /products)
-// orderBy: ORDER_BY.RECENT(최신순) 또는 ORDER_BY.FAVORITE(좋아요순)
+// orderBy: ORDER_BY.RECENT(최신순)
 export async function getProducts({
   page = 1,
   pageSize = 10,
