@@ -22,7 +22,8 @@ function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { errors, getError, handleBlur } = useProductValidation(values);
+  const { errors, getError, handleBlur, isValid } =
+    useProductValidation(values);
 
   // 입력칸별 에러 문구 (없으면 "")
   const nameError = getError("name");
@@ -84,7 +85,7 @@ function RegistrationForm() {
         <button
           className="btn-primary registration-form-submit"
           type="submit"
-          disabled={isSubmitting}
+          disabled={!isValid || isSubmitting}
         >
           등록
         </button>

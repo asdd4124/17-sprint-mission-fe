@@ -6,6 +6,7 @@ const DESCRIPTION_MIN_LENGTH = 10;
 const DESCRIPTION_MAX_LENGTH = 100;
 const TAG_MAX_LENGTH = 5;
 const NUMBER_ONLY = /^\d+$/; // 0~9 숫자로만 이루어진 값
+const REQUIRED_FIELDS = ["name", "description", "price"]; // 꼭 채워야 하는 입력칸
 
 // 상품 소개: 10자 이상 100자 이내 (조건이 2개라 함수로 분리)
 function getDescriptionError(description) {
@@ -52,7 +53,12 @@ function useProductValidation(values) {
   // 벗어난 적 있는 입력칸만 에러 문구 돌려주기 (처음부터 빨간색이 뜨지 않게)
   const getError = (name) => (touched[name] ? errors[name] : "");
 
-  return { errors, getError, handleBlur };
+  // 꼭 채워야 하는 칸이 모두 있고 에러가 하나도 없으면 등록 가능
+  const isValid =
+    REQUIRED_FIELDS.every((name) => values[name].trim()) &&
+    Object.values(errors).every((error) => !error);
+
+  return { errors, getError, handleBlur, isValid };
 }
 
 export default useProductValidation;
