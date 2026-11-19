@@ -20,3 +20,10 @@ export async function getProducts({
   });
   return response.data; // { list, totalCount }
 }
+
+// 상품 등록 (POST /products)
+// product: { name, description, price, tags }
+export async function createProduct(product) {
+  const response = await instance.post("/products", product);
+  return response.data; // 등록된 상품 { id, name, ... }
+}
