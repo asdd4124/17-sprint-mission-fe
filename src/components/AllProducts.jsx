@@ -45,7 +45,7 @@ function AllProducts() {
   return (
     <section className="all-products">
       <div className="all-products-header">
-        <h2 className="section-title">전체 상품</h2>
+        <h2 className="section-title">판매 중인 상품</h2>
         <SearchForm onSearch={handleSearch} />
         <Link to="/registration" className="btn-primary all-products-register">
           상품 등록하기

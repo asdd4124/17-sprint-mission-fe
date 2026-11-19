@@ -43,7 +43,7 @@ main {
   padding: 1.5rem 0 8.75rem;
 }
 
-/* "베스트 상품", "전체 상품" 제목 */
+/* "판매 중인 상품" 제목 */
 .section-title {
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
