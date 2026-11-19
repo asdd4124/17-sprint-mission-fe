@@ -52,7 +52,7 @@ function useProductValidation(values) {
   // 벗어난 적 있는 입력칸만 에러 문구 돌려주기 (처음부터 빨간색이 뜨지 않게)
   const getError = (name) => (touched[name] ? errors[name] : "");
 
-  return { getError, handleBlur };
+  return { errors, getError, handleBlur };
 }
 
 export default useProductValidation;

@@ -18,10 +18,11 @@ const getInputClassName = (className, error) =>
 // 상품 등록 폼 (상품명 · 상품 소개 · 판매가격 · 태그)
 function RegistrationForm() {
   const [values, setValues] = useState(INITIAL_VALUES);
+  const [tags, setTags] = useState([]); // Enter로 추가한 태그 칩 목록
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { getError, handleBlur } = useProductValidation(values);
+  const { errors, getError, handleBlur } = useProductValidation(values);
 
   // 입력칸별 에러 문구 (없으면 "")
   const nameError = getError("name");
@@ -35,17 +36,38 @@ function RegistrationForm() {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
+  // 태그 입력 후 Enter → 칩으로 추가
+  const handleTagKeyDown = (e) => {
+    // 한글 조합 중 Enter는 무시 (같은 태그가 두 번 추가되지 않게)
+    if (e.key !== "Enter" || e.nativeEvent.isComposing) return;
+    e.preventDefault(); // Enter로 폼이 제출되지 않게
+
+    const tag = values.tag.trim();
+    if (!tag) return;
+    if (errors.tag) {
+      handleBlur(e); // 5글자를 넘으면 칩 대신 에러 문구 보여 주기
+      return;
+    }
+    // 같은 태그는 한 번만 추가하고, 입력칸은 비우기
+    if (!tags.includes(tag)) setTags((prev) => [...prev, tag]);
+    setValues((prev) => ({ ...prev, tag: "" }));
+  };
+
+  // X 버튼 → 그 태그만 목록에서 빼기
+  const handleTagDelete = (deleteTag) => {
+    setTags((prev) => prev.filter((tag) => tag !== deleteTag));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
     try {
-      const tag = values.tag.trim();
       const product = await createProduct({
         name: values.name.trim(),
         description: values.description.trim(),
         price: Number(values.price),
-        tags: tag ? [tag] : [],
+        tags,
       });
       navigate(`/items/${product.id}`); // 등록 성공 → 상품 상세 페이지
     } catch (err) {
@@ -142,9 +164,32 @@ function RegistrationForm() {
           value={values.tag}
           onChange={handleChange}
           onBlur={handleBlur}
+          onKeyDown={handleTagKeyDown}
           placeholder="태그를 입력해주세요"
         />
         {tagError && <p className="registration-form-error">{tagError}</p>}
+        {tags.length > 0 && (
+          <ul className="registration-form-tags">
+            {tags.map((tag) => (
+              <li className="registration-form-tag" key={tag}>
+                #{tag}
+                <button
+                  className="registration-form-tag-delete"
+                  type="button"
+                  onClick={() => handleTagDelete(tag)}
+                  aria-label={`${tag} 태그 삭제`}
+                >
+                  <img
+                    src="/images/icons/ic_x.svg"
+                    alt=""
+                    width="24"
+                    height="24"
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </form>
   );
