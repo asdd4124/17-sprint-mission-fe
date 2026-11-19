@@ -8,6 +8,15 @@
   height: 2.625rem;
   padding: 0 1.4375rem;
 }
+.registration-form-submit:disabled {
+  background: var(--gray-400);
+  cursor: default;
+}
+.registration-form-submit-error {
+  margin-bottom: 1.5rem;
+  font-size: var(--fs-sm);
+  color: var(--red);
+}
 .registration-form-field {
   display: flex;
   flex-direction: column;
