@@ -1,0 +1,136 @@
+/* 상단 소개 (Hero) */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 33.75rem;
+  background: var(--sky);
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  width: var(--inner);
+  height: 21.25rem;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 3.75rem;
+}
+.hero-title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.btn-large {
+  width: 22.3125rem;
+  height: 3.5rem;
+  padding: 0.75rem 0; /* (56 − 32) ÷ 2 = 12 · 글자 세로 가운데 */
+  border-radius: var(--radius-pill);
+  background: var(--blue);
+  color: var(--gray-50);
+  font-size: var(--fs-btn-lg);
+  font-weight: var(--fw-semibold);
+  line-height: 2rem;
+  text-align: center;
+  white-space: nowrap; /* 어떤 글꼴에서도 한 줄 */
+}
+.hero-image {
+  flex-shrink: 0;
+  width: 46.625rem;
+  height: 21.25rem;
+}
+
+/* 기능 소개 섹션 */
+.feature {
+  height: 45rem;
+  padding: 8.625rem 0; /* 좌우는 카드의 margin: 0 auto가 가운데로 */
+  background: var(--white);
+}
+.feature-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: var(--card);
+  height: 27.75rem;
+  margin: 0 auto;
+  background: var(--page);
+}
+.feature-image {
+  flex-shrink: 0;
+  width: 36.75rem;
+  height: 27.75rem;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.feature-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.feature-label {
+  color: var(--blue);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  line-height: 1.625rem;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.feature-title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.feature-desc {
+  font-size: var(--fs-desc);
+  font-weight: var(--fw-medium);
+  line-height: 2rem;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+
+/* 글 왼쪽 · 그림 오른쪽 섹션 (두 번째 섹션) */
+.feature-reverse .feature-card {
+  flex-direction: row-reverse;
+}
+.feature-reverse .feature-text {
+  width: 19.8125rem; /* 317px · Figma 글 묶음 폭 (오른쪽 정렬 기준선) */
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* 하단 배너 */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 33.75rem;
+  margin-top: 8.625rem;
+  background: var(--sky);
+}
+.banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 4.3125rem;
+  width: var(--inner);
+  height: 24.8125rem;
+}
+.banner-title {
+  padding-bottom: 3.75rem;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  white-space: nowrap; /* 줄바꿈은 <br>에서만 */
+}
+.banner-image {
+  flex-shrink: 0;
+  width: 46.625rem;
+  height: 24.8125rem;
+}
